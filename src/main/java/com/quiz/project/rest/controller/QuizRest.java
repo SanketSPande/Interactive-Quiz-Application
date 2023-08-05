@@ -40,14 +40,15 @@ public class QuizRest {
 		//System.out.println("questionNo in REST = "+question.getQuestionNo());
 		Optional<Quiz> quiz = quizRepository.findById(quizId);
 		
-			if(quiz.isPresent()) {				
+		if(!quiz.isPresent()) {
+			throw new ResourceNotFoundException("Quiz Not Found With Quiz Id =: "+quizId);
+		}
+		
+		else {				
 				question.setQuiz(quiz.get()); //get() method belongs to optional class, which helps to retrieve the actual object from the optional object
 				questionRepository.save(question);
 				return question.getQuestionNo();
-			}
-			else {	
-				throw new ResourceNotFoundException("Quiz Not Found With Quiz Id =: "+quizId);
-			}
+		}
 	}
 	
 	@GetMapping("rest/retrieveQuestion")
@@ -57,11 +58,12 @@ public class QuizRest {
 		//Question question = oquestion.get();
 		//System.out.println("question in REST = "+question);
 		
-		if(question.isPresent()){
-			return question;
+		if(!question.isPresent()){
+			throw new ResourceNotFoundException("Question Not Found with question no : "+questionNo);
+			
 		}
 		else {
-		throw new ResourceNotFoundException("Question Not Found with question no : "+questionNo);
+			return question;
 		}
 	}
 	
@@ -103,11 +105,13 @@ public class QuizRest {
 		
 		//System.out.println("Quiz id in REST successfull reached = "+quizId);
 		Optional<Quiz> quiz = quizRepository.findById(quizId);	
-		if(quiz.isPresent()) {
+		if(!quiz.isPresent()) {
+			throw new ResourceNotFoundException("Quiz Not Found With Quiz Id =: "+quizId);
+			
+		}
+		else {
 			return quiz;
 		}
-		else
-			throw new ResourceNotFoundException("Quiz Not Found With Quiz Id =: "+quizId);
 	}
 	
 	@GetMapping("rest/retrieveAllQuizList")

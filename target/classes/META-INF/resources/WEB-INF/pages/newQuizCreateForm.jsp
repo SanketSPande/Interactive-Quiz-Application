@@ -39,6 +39,7 @@
 		else{
 			true;
 		}
+		alert("Quiz added successfully!!");
 	}
 
 </script>

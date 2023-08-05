@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@include file="common/navigation.jspf" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="c" %>  
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
@@ -21,7 +20,7 @@
 	<c:form action="/attempt/${quizId}" modelAttribute="answer" method="post">
 		
 		<div class="mb-3">
-		${index}. ${question.getQuestionStatement()}		
+		${index}] ${question.getQuestionStatement()}		
 		</div><br>
 		
 		<div class="mb-3">

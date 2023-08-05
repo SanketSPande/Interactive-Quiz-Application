@@ -54,7 +54,24 @@ List<Question> listOfQuestion = (List)session.getAttribute("listOfQuestionsForRe
 				
 			</tr>	
 			</div>
-		 	<% } 
+		 	<% }
+		 	
+		 	if(listOfAnswers.get(index).getChoice() == null) {%>
+			<div>
+			<tr>
+				
+				<td><%=index + 1%></td>
+				<td><%=listOfQuestion.get(index).getQuestionStatement()%></td>
+				<td><%=listOfQuestion.get(index).getOption1()%></td>
+				<td><%=listOfQuestion.get(index).getOption2()%></td>
+				<td><%=listOfQuestion.get(index).getOption3()%></td>
+				<td><%=listOfQuestion.get(index).getOption4()%></td>
+				<td><%=listOfQuestion.get(index).getCorrectOptionNo()%></td>
+				<td class="bg-warning">Not Attempted</td>
+				
+			</tr>	
+			</div>
+		 	<% }
 		 	
 		 	 else{ %>
 		 	<div >
