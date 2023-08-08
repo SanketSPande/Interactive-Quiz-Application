@@ -65,7 +65,7 @@ Make sure you have Java 17 and MySQL installed.
 
 Configure your MySQL database settings in src/main/resources/application.properties.
 
-Currently, the server port number is 3030 and MySql is running on port number 3306, if you want, you may customize it.
+Currently, the server port number is 3030 and MySql is running on port number 3306, if you want, you may customize it in src/main/resources/application.properties.
 
 
 ## Access the Application:
