@@ -43,22 +43,31 @@ The application provides RESTful APIs for interacting with quizzes and questions
 Follow these steps to set up and run the Interactive Quiz Application:
 
 1. Clone the repository:
-   open git bash
+   open git bash and hit,
+   
    git clone https://github.com/SanketSPande/interactive-quiz-application.git
+   
    cd interactive-quiz-application
+   
+3. Run the Spring Boot application using your preferred IDE :
+
+    step 1 -> Open your preferred IDE and import this project as an "Existing Maven Project"
+    
+    step 2 -> Go to "src/main/java" 
+    
+    step 3 -> Select "ProjectApplication.java" in the "com/quiz/project" package
+
+    step 4 -> "Right Click" and select "Run as" and then "Java Application"
 
 ## Backend Setup:
 
 Make sure you have Java 17 and MySQL installed.
+
 Configure your MySQL database settings in src/main/resources/application.properties.
+
 Currently, the server port number is 3030 and MySql is running on port number 3306, if you want, you may customize it.
 
 
 ## Access the Application:
-
-Run the Spring Boot application using your preferred IDE :
-    step 1 -> Go to src/main/java 
-    step 2 -> Select ProjectApplication.java in the com/quiz/project package
-    step 3 -> "Right Click" and select "Run as" and then "Java Application"
 
 Open your web browser and go to http://localhost:3030 to use the Interactive Quiz Application.
