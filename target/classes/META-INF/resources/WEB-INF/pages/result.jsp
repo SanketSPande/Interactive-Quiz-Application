@@ -56,7 +56,7 @@ List<Question> listOfQuestion = (List)session.getAttribute("listOfQuestionsForRe
 			</div>
 		 	<% }
 		 	
-		 	if(listOfAnswers.get(index).getChoice() == null) {%>
+			else if(listOfAnswers.get(index).getChoice() == null) {%>
 			<div>
 			<tr>
 				

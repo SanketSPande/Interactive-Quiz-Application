@@ -115,7 +115,7 @@ public class QuizController {
 	
 	@GetMapping("attempt/{quizId}")
 	public String attemptQuestionByUserPage(@PathVariable Integer quizId,ModelMap model) {
-		System.out.println("Quiz id in ATTEMPT GETTT controller = "+quizId);
+		//System.out.println("Quiz id in ATTEMPT GETTT controller = "+quizId);
 		Quiz quiz = quizService.getQuizById(quizId);		
 		List<Question> listOfQuestionsToAttempt = quiz.getListOfQuestions();		
 		String quizName = quiz.getQuizName();
@@ -134,7 +134,7 @@ public class QuizController {
 	@PostMapping("attempt/{quizId}")  
 	public String submitQuestion(@ModelAttribute("answer")Answer answer,@PathVariable Integer quizId,ModelMap model)  
 	{  
-		System.out.println(index+"."+"Quiz id in ATTEMPT PosTTT controller = "+quizId);
+		//System.out.println(index+"."+"Quiz id in ATTEMPT PosTTT controller = "+quizId);
 
 		Quiz quiz = quizService.getQuizById(quizId);	
 		
@@ -151,7 +151,7 @@ public class QuizController {
 		model.put("quizName", quizName);
 		model.put("quizId", quizId);
 		model.put("index", index);		
-		System.out.println(answer);
+		//System.out.println(answer);
 		return "attemptQuestionByUser";
 		
 		}		
@@ -160,7 +160,9 @@ public class QuizController {
 			int score=0;
 			int i = 0;
 			List<Answer> listOfAnswers = quizService.getListOfAllAns();
+			
 			List<Question> listOfQuestion = quiz.getListOfQuestions();
+			
 
 			for(Answer answeritr : listOfAnswers) {
 				if((answeritr.getChoice()) == (listOfQuestion.get(i++).getCorrectOptionNo())) {
@@ -170,12 +172,14 @@ public class QuizController {
 			model.put("score", score);
 			model.put("listOfAnswers", listOfAnswers);
 			model.put("listOfQuestionsForResult", listOfQuestion);
-			System.out.println(score);
-			for(Answer answeritr : listOfAnswers) {
-				System.out.println("choice = "+answeritr.getChoice());
-			}
+			//System.out.println(score);
+//			for(Answer answeritr : listOfAnswers) {
+//				System.out.println("choice = "+answeritr.getChoice());
+//			}
 			quizService.emptyTheAnswerList();
 			index=0;
+			System.out.println("listOfAnswers="+listOfAnswers);
+			System.out.println("listOfQuestion="+listOfQuestion);
 		return "result";  
 		}
 	} 
