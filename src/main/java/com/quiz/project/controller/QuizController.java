@@ -265,7 +265,7 @@ public class QuizController {
 		return "paginatedQuizForAdmin";
 	}
 		
-	///////////////////////////////////////////
+	
 	 
 
 }
