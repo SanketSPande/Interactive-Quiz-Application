@@ -21,12 +21,13 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 </script>
 <head>
 <meta charset="ISO-8859-1">
-<title>Quiz List</title>
+<title>Admin Dashboard - Quiz List</title>
 </head>
 <body>
 <div class="container">
 <div class="row">
 <div class="col">
+<h1>Admin Dashboard</h1><br> <!-- Add this heading -->
 <table class="table table-striped table-border bordered-primary">
 		<thead>
 		

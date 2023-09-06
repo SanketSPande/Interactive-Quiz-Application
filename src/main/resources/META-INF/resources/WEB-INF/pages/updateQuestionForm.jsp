@@ -42,8 +42,8 @@
 			alert("No blank values allowed for Correct Option No");
 			return false;
 		}
-		if(cr_opt_no.value < 1 || cr_opt_no.value > 4){
-			alert("Correct Option No values less than 1 as well as more than 4 are not allowed");
+		if(cr_opt_no.value != 1 & cr_opt_no.value !=2 & cr_opt_no.value != 3 & cr_opt_no.value != 4){
+			alert("Correct Option Number must be a number in between 1 to 4");
 			return false;
 		}
 		

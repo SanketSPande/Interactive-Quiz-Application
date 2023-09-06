@@ -183,7 +183,16 @@ public class QuizController {
 		return "result";  
 		}
 	} 
-		
+	
+	@GetMapping ("/faq")
+	public String getFAQPage() {
+		return "faq";
+	}
+	
+	@GetMapping ("/contact")
+	public String getContactPage() {
+		return "contact";
+	}
 	
 	
 	

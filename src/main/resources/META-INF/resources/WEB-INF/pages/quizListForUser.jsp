@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Quizes with Status</title>
+<title>User Dashboard - Quizzes with Status</title>
 </head>
 <body>
 <%List<Quiz> quizList=(List<Quiz>)session.getAttribute("quizList"); 
@@ -16,6 +16,7 @@ int i = 0; %>
 <div class="container">
 <div class="row">
 <div class="col">
+<h1>User Dashboard</h1><br> <!-- Add this heading -->
 <table class="table table-striped table-border bordered-primary">
 		<thead>
 		
