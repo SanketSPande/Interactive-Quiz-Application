@@ -131,7 +131,7 @@ public class QuizController {
 		model.put("index", index + 1);
 		
 		index=1;
-		System.out.println("Flag in Get Controller");
+		//System.out.println("Flag in Get Controller");
 
 		return "attemptQuestionByUser";
 	}
@@ -146,7 +146,7 @@ public class QuizController {
 		List<Question> listOfQuestions = quiz.getListOfQuestions();
 		quizService.appendListOfAnswers(answer);
 		
-		System.out.println("Flag in Post Controller");
+		//System.out.println("Flag in Post Controller");
 		
 		if(index< (listOfQuestions.size())) {
 			
