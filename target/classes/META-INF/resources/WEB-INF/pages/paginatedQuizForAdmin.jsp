@@ -17,12 +17,24 @@ function confirmation(){
 }
 
 </script>
+<style>
+h2 {
+  text-align: center; 
+  font-size: 24px; 
+}
+.quiz-title {
+  text-align: center; 
+  font-size: 48px; 
+}
+
+</style>
 <head>
 <meta charset="ISO-8859-1">
 <title>Admin Review</title>
 </head>
 <body>
-<h2>${quizName}</h2><br>
+<h2 class="quiz-title">${quizName}</h2>
+<br>
 <div class="container">
 <div class="row">
 <div class="col">

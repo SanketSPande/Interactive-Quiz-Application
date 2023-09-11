@@ -15,8 +15,19 @@ import com.quiz.project.service.QuizService;
 //This annotation will scan all RestControllers for corresponding exceptions
 @RestControllerAdvice  //This annotation will help the application for handling exceptions globally across all controllers 
 public class GlobalExceptionHandler {
-	@Autowired
-	private QuizService quizService;
+	
+//	@Autowired
+//	private QuizService quizService;
+//	
+//	@ResponseStatus(HttpStatus.CONTINUE)
+//	@ExceptionHandler(IndexOutOfBoundsException.class)
+//	public ErrorDetails indexOutOfBoundsExceptionHandler(IndexOutOfBoundsException ex,WebRequest request) throws Exception{
+//		quizService.emptyTheAnswerList();
+//		ErrorDetails err = new ErrorDetails(LocalDateTime.now(),
+//				ex.getMessage(), request.getDescription(false));
+//		return err;
+//	}
+
 	
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(ResourceNotFoundException.class)
@@ -27,13 +38,6 @@ public class GlobalExceptionHandler {
 
 	}
 	
-	@ResponseStatus(HttpStatus.CONTINUE)
-	@ExceptionHandler(IndexOutOfBoundsException.class)
-	public ErrorDetails indexOutOfBoundsExceptionHandler(IndexOutOfBoundsException ex,WebRequest request) throws Exception{
-		quizService.emptyTheAnswerList();
-		ErrorDetails err = new ErrorDetails(LocalDateTime.now(),
-				ex.getMessage(), request.getDescription(false));
-		return err;
-	}
+	
 
 }

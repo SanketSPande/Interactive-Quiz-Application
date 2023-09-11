@@ -23,7 +23,8 @@ int i = 0; %>
 		<tr>
 			<th>Quiz No</th>
 			<th>Quiz Title</th>			
-			<th>Status</th>						
+			<th>Status</th>	
+			<th>Action</th>					
 		</tr>
 		
 		</thead>

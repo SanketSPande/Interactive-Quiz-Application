@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@include file="common/navigation.jspf" %>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
+
 <%@ page import="java.util.List"%>
 <%@ page import="com.quiz.project.bean.Answer"%>
 <%@ page import="com.quiz.project.bean.Question"%>
@@ -15,6 +15,7 @@ List<Question> listOfQuestion = (List)session.getAttribute("listOfQuestionsForRe
 <title>Result</title>
 </head>
 <body>
+<%@ page errorPage="/error.jsp" %>  
 <h2>${quizName}</h2><br><br>
 <h4>Your Score = ${score}/<%=listOfAnswers.size() %> !!</h4>
 <div class="container">

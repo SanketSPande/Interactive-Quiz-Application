@@ -93,10 +93,13 @@ public class QuizController {
 	}
 
 	@GetMapping("showQuizListToUser")
-	public String getAllQuizesForUser(ModelMap model) {
+	public String getAllQuizesForUser(@RequestParam(required = false) String error,ModelMap model) {
 		//System.out.println("Flag in showQuizListToUser controller before status = "+flag);
 				
-		
+		 if(error != null) {
+			 quizService.emptyTheAnswerList(); 
+			 index = 0;
+		 }
 		 quizService.refreshStatusOfQuizes();
 		 List<Quiz>quizList = quizService.getListOfAllQuiz();
 		
@@ -128,6 +131,8 @@ public class QuizController {
 		model.put("index", index + 1);
 		
 		index=1;
+		System.out.println("Flag in Get Controller");
+
 		return "attemptQuestionByUser";
 	}
 	
@@ -140,7 +145,8 @@ public class QuizController {
 		
 		List<Question> listOfQuestions = quiz.getListOfQuestions();
 		quizService.appendListOfAnswers(answer);
-
+		
+		System.out.println("Flag in Post Controller");
 		
 		if(index< (listOfQuestions.size())) {
 			
@@ -178,8 +184,8 @@ public class QuizController {
 //			}
 			quizService.emptyTheAnswerList();
 			index=0;
-			System.out.println("listOfAnswers="+listOfAnswers);
-			System.out.println("listOfQuestion="+listOfQuestion);
+//			System.out.println("listOfAnswers="+listOfAnswers);
+//			System.out.println("listOfQuestion="+listOfQuestion);
 		return "result";  
 		}
 	} 
@@ -211,8 +217,17 @@ public class QuizController {
 		//System.out.println("Question no reached in GET controller = "+questionNo);		
 		//System.out.println("We have Set the question no in controller and rendered the form to = "+question.getQuestionNo());		
 		
-		model.put("question", new Question());		
+		//retrieve the quiz	
 		Quiz quiz = quizService.getQuizById(quizId);
+		
+		//extract the List of Questions from it
+		List<Question> list = quiz.getListOfQuestions();
+		
+		//Create a fresh Question 
+		Question emptyAndFreshQuestion = new Question();
+		emptyAndFreshQuestion.setQuestionNo(list.size()+1);
+		
+		model.put("question", emptyAndFreshQuestion);	
 		model.put("quizName", quiz.getQuizName());
 		model.put("quizId", quizId);
 		
