@@ -26,6 +26,8 @@ public class Question {
 	
 	private Integer correctOptionNo;
 	
+	private String explanation;
+	
 	@JsonIgnore
 	@ManyToOne
 	private Quiz quiz;
@@ -95,20 +97,21 @@ public class Question {
 		this.correctOptionNo = correctOptionNo;
 	}
 
+	public String getExplanation() {
+		return explanation;
+	}
+
+	public void setExplanation(String explanation) {
+		this.explanation = explanation;
+	}
+
 	public Question() {
 		super();
 		// TODO Auto-generated constructor stub
-	}	
-
-	@Override
-	public String toString() {
-		return "Question [questionNo=" + questionNo + ", questionStatement=" + questionStatement + ", option1="
-				+ option1 + ", option2=" + option2 + ", option3=" + option3 + ", option4=" + option4
-				+ ", correctOptionNo=" + correctOptionNo + ", quiz=" + quiz + "]";
 	}
 
 	public Question(Integer questionNo, String questionStatement, String option1, String option2, String option3,
-			String option4, Integer correctOptionNo, Quiz quiz) {
+			String option4, Integer correctOptionNo, String explanation, Quiz quiz) {
 		super();
 		this.questionNo = questionNo;
 		this.questionStatement = questionStatement;
@@ -117,8 +120,18 @@ public class Question {
 		this.option3 = option3;
 		this.option4 = option4;
 		this.correctOptionNo = correctOptionNo;
+		this.explanation = explanation;
 		this.quiz = quiz;
 	}
+
+	@Override
+	public String toString() {
+		return "Question [questionNo=" + questionNo + ", questionStatement=" + questionStatement + ", option1="
+				+ option1 + ", option2=" + option2 + ", option3=" + option3 + ", option4=" + option4
+				+ ", correctOptionNo=" + correctOptionNo + ", explanation=" + explanation + ", quiz=" + quiz + "]";
+	}	
+
+	
 
 	
 

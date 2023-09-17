@@ -49,6 +49,7 @@ h2 {
 			<th>Option 3</th>
 			<th>Option 4</th>
 			<th>Correct Option</th>
+			<th>Explanation</th>
 			<th colspan="2">Actions</th>
 			
 		</tr>
@@ -66,6 +67,7 @@ h2 {
 				<td>${l.option3}</td>
 				<td>${l.option4}</td>
 				<td>${l.correctOptionNo}</td>
+				<td>${l.explanation}</td>
 				<th><a href="/updateQuestion/${quizId}?questionNo=${l.questionNo}" > <span id="boot-icon" class="bi bi-pencil" style="font-size: 20px; color: rgb(84, 84, 84); -webkit-text-stroke-width: 1px; opacity: 1;"></span> </a></th>
 				<th><a href="/deleteQuestion/${quizId}?questionNo=${l.questionNo}" onclick="return confirmation();"> <span id="boot-icon" class="bi bi-trash" style="font-size: 20px; color: rgb(255, 0, 0); -webkit-text-stroke-width: 0.5px;"></span> </a></th>
 				
