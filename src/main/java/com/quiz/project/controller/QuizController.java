@@ -186,9 +186,15 @@ public class QuizController {
 			index=0;
 //			System.out.println("listOfAnswers="+listOfAnswers);
 //			System.out.println("listOfQuestion="+listOfQuestion);
-		return "result";  
+			System.out.println("Score is "+score);
+		return "redirect:/resultPage";  
 		}
 	} 
+	
+	@GetMapping ("/resultPage")
+	public String getResultPage() {
+		return "result";
+	}
 	
 	@GetMapping ("/faq")
 	public String getFAQPage() {
@@ -198,6 +204,12 @@ public class QuizController {
 	@GetMapping ("/contact")
 	public String getContactPage() {
 		return "contact";
+	}
+	
+	@GetMapping ("/explanation")
+	public String getExplanationPage(@RequestParam String explanation,ModelMap model) {
+		model.put("explanation", explanation);
+		return "explanationOrSolution";
 	}
 	
 	
@@ -275,6 +287,7 @@ public class QuizController {
 		quizService.saveTheQuestion(question, quizId);
 		return "redirect:/reviewQuestions/"+Integer.toString(quizId);
 	}
+	
 	@GetMapping("reviewQuestions/{quizId}")
 	public String reviewQuizByAdminPage(@PathVariable Integer quizId,ModelMap model) {
 		//System.out.println("Quiz id in REVIEW controller = "+quizId);

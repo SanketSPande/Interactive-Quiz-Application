@@ -33,6 +33,7 @@ List<Question> listOfQuestion = (List)session.getAttribute("listOfQuestionsForRe
 			<th>Option 4</th>
 			<th>Correct Option</th>
 			<th>Your Answer</th>
+			<th>Explanation</th>
 			
 		</tr>
 		
@@ -52,6 +53,7 @@ List<Question> listOfQuestion = (List)session.getAttribute("listOfQuestionsForRe
 				<td><%=listOfQuestion.get(index).getOption4()%></td>
 				<td><%=listOfQuestion.get(index).getCorrectOptionNo()%></td>
 				<td class="bg-success"><%=listOfAnswers.get(index).getChoice()%></td>
+				<td><a href="/explanation?explanation=<%=listOfQuestion.get(index).getExplanation()%>" class="btn btn-success btn-lg">Explanation</a></td>
 				
 			</tr>	
 			</div>
@@ -69,6 +71,7 @@ List<Question> listOfQuestion = (List)session.getAttribute("listOfQuestionsForRe
 				<td><%=listOfQuestion.get(index).getOption4()%></td>
 				<td><%=listOfQuestion.get(index).getCorrectOptionNo()%></td>
 				<td class="bg-warning">Not Attempted</td>
+				<td><a href="/explanation?explanation=<%=listOfQuestion.get(index).getExplanation()%>" class="btn btn-success btn-lg">Explanation</a></td>
 				
 			</tr>	
 			</div>
@@ -86,6 +89,7 @@ List<Question> listOfQuestion = (List)session.getAttribute("listOfQuestionsForRe
 				<td><%=listOfQuestion.get(index).getOption4()%></td>
 				<td><%=listOfQuestion.get(index).getCorrectOptionNo()%></td>
 				<td class="bg-danger"><%=listOfAnswers.get(index).getChoice()%></td>
+				<td><a href="/explanation?explanation=<%=listOfQuestion.get(index).getExplanation()%>" class="btn btn-success btn-lg">Explanation</a></td>
 				
 			</tr>	
 			</div>

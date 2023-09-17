@@ -80,7 +80,7 @@ contentType="text/html; charset=UTF-8"%>
             </tr>
             <tr>
                 <th>Probable Reason</th>
-                <td>Hitting Back button (web browser) while attempting the quiz</td>
+                <td>Hitting Back button (web browser) or double clicking Next button multiple times for single question  while attempting the quiz </td>
             </tr>
             <tr>
                 <th>Solution</th>

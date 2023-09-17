@@ -42,6 +42,10 @@
 			alert("No blank values allowed for Correct Option No");
 			return false;
 		}
+		if(explanation.trim() == ""){
+			alert("No blank values allowed for Explanation");
+			return false;
+		}
 		if(cr_opt_no.value != 1 & cr_opt_no.value !=2 & cr_opt_no.value != 3 & cr_opt_no.value != 4){
 			alert("Correct Option Number must be a number in between 1 to 4");
 			return false;
@@ -97,6 +101,11 @@
 		<div class="mb-3">
 		Correct Option No
 		<c:input type="text"  class = "form-control" id="cr_opt_no" path="correctOptionNo"></c:input>
+		</div><br>
+		
+		<div class="mb-3">
+		Explanation
+		<c:input type="text"  class = "form-control" id="explanation" path="explanation"></c:input>
 		</div><br>
 		
 		<div>
