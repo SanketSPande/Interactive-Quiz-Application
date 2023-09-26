@@ -175,9 +175,7 @@ public class QuizController {
 					score++;
 				}
 			}
-			model.put("score", score);
-			model.put("listOfAnswers", listOfAnswers);
-			model.put("listOfQuestionsForResult", listOfQuestion);
+			
 			//System.out.println(score);
 //			for(Answer answeritr : listOfAnswers) {
 //				System.out.println("choice = "+answeritr.getChoice());
@@ -186,13 +184,16 @@ public class QuizController {
 			index=0;
 //			System.out.println("listOfAnswers="+listOfAnswers);
 //			System.out.println("listOfQuestion="+listOfQuestion);
+			model.put("listOfAnswers", listOfAnswers);
+			model.put("listOfQuestionsForResult", listOfQuestion);
 			System.out.println("Score is "+score);
-		return "redirect:/resultPage";  
+		return "redirect:/resultPage"+"?score="+score;  
 		}
 	} 
 	
 	@GetMapping ("/resultPage")
-	public String getResultPage() {
+	public String getResultPage(@RequestParam("score") Integer score,ModelMap model) {
+		model.put("score", score);	
 		return "result";
 	}
 	

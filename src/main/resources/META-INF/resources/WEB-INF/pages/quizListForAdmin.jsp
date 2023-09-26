@@ -52,8 +52,8 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 				<td>${l.quizName}</td>
 				<td><p><a href="/reviewQuestions/${l.quizId}" class="btn btn-light"><span id="boot-icon" class="bi bi-plus" style="font-size: 28px; -webkit-text-stroke-width: 2.9px; color: rgb(22, 162, 101);"></span> OR <span id="boot-icon" class="bi bi-pencil" style="font-size: 20px; color: rgb(84, 84, 84); -webkit-text-stroke-width: 1px; opacity: 1;"></span> </a></p></td>
 				<td><p>${(l.listOfQuestions.size() - 1) + 1}</p></td>
-				<td><p data-toggle="tooltip" data-placement="right" title="Format : (yyyy-mm-dd)T(hh:mm:ss)">${l.activationDateTime}</p></td>
-				<td><p data-toggle="tooltip" data-placement="right" title="Format : (yyyy-mm-dd)T(hh:mm:ss)">${l.deactivationDateTime}</p></td>				
+				<td><p data-toggle="tooltip" data-placement="right" title="Format : (yyyy-mm-dd)T(hh:mm)">${l.activationDateTime}</p></td>
+				<td><p data-toggle="tooltip" data-placement="right" title="Format : (yyyy-mm-dd)T(hh:mm)">${l.deactivationDateTime}</p></td>				
 				<th><a href="/updateQuiz?quizId=${l.quizId}"> <span id="boot-icon" class="bi bi-pencil" style="font-size: 20px; color: rgb(84, 84, 84); -webkit-text-stroke-width: 1px; opacity: 1;"></span> </a> </th>
 				<th><a href="/deleteQuiz?quizId=${l.quizId}" onclick="return confirmation();"> <span id="boot-icon" class="bi bi-trash" style="font-size: 20px; color: rgb(255, 0, 0); -webkit-text-stroke-width: 0.5px;"></span> </a> </th>
 			

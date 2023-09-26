@@ -12,12 +12,37 @@ List<Question> listOfQuestion = (List)session.getAttribute("listOfQuestionsForRe
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<style>
+    .score-container {
+        background: linear-gradient(to bottom, #007bff, #0056b3);
+        color: #fff;
+        padding: 15px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+        display: inline-block;
+        width: 500px;
+    }
+
+   
+    .center-container {
+        text-align: center;
+        margin-top: 20px; /* Add some spacing from the top */
+    }
+</style>
+
 <title>Result</title>
 </head>
 <body>
 <%@ page errorPage="/error.jsp" %>  
 <h2>${quizName}</h2><br><br>
-<h4>Your Score = ${score}/<%=listOfAnswers.size() %> !!</h4>
+<div class="center-container">
+    <h4 class="score-container">
+        Your Score: ${score}/<%=listOfAnswers.size() %> !!
+    </h4>
+</div>
+<!--  <h4>Your Score = ${score}/<%=listOfAnswers.size() %> !!</h4> -->
 <div class="container">
 <div class="row">
 <div class="col">
