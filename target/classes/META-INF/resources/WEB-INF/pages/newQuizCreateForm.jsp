@@ -43,44 +43,107 @@
 	}
 
 </script>
+     <style>
+        /* Style for the navigation bar */
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+
+        /* Center align the form vertically and horizontally */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container-inner {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .instructions {
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .btn-save {
+            display: block;
+            width: 100%;
+            background-color: #007BFF;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-save:hover {
+            background-color: #0056b3;
+        }
+    </style>
 <head>
 <meta charset="ISO-8859-1">
 <title>New Quiz Form</title>
-<h2>Add Quiz Details</h2>
-</head>
-<body>
 
-<div class = "container">
-	<div class="row_justify-content-center mt-5">
-	<div class="col-lg-3 col-md-3">
-	<div class="card">
-	<div class="card-body">
-	<c:form onsubmit="return validate()" action="createQuiz" modelAttribute="quiz" method="post">
-	
-		<div class="mb-3">
-		<c:input type="text" class = "form-control" id="qname" path="quizName" placeholder="Add Quiz Name" ></c:input>
-		</div><br><br>		
-		
-		<div class="mb-3">
-		Select activation date & time of quiz
-		<c:input type="datetime-local" class = "form-control" id="adt" path="activationDateTime" min="${quiz.getActivationDateTime()}"></c:input>
-		</div><br><br>
-		
-		<div class="mb-3">
-		Select deactivation date & time of quiz	
-		<c:input type="datetime-local" class = "form-control" id="ddt" path="deactivationDateTime"></c:input>
-		</div><br><br>
-		
-		<div class="mb-3">	
-        <input type="submit"  value="Save" class = "btn btn-success w-100"/>	
-		</div>	
-			
-	</c:form>
-	</div>
-	</div>
-	</div>
-	</div>
-	</div>
-<%@include file="common/footer.jspf" %>
+</head>
+
+
+<body>
+    
+    <div class="container">
+        <div class="container-inner">
+            <div class="instructions">
+                <h2>Add Quiz Details</h2>
+            </div>
+            <form onsubmit="return validate()" action="createQuiz" modelAttribute="quiz" method="post">
+
+                <div class="form-group">
+                    <label for="qname">Quiz Name</label>
+                    <input type="text" class="form-control" id="qname" path="quizName" placeholder="Add Quiz Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="adt">Activation Date & Time</label>
+                    <input type="datetime-local" class="form-control" id="adt" path="activationDateTime" min="${quiz.getActivationDateTime()}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ddt">Deactivation Date & Time</label>
+                    <input type="datetime-local" class="form-control" id="ddt" path="deactivationDateTime" required>
+                </div>
+
+                <button type="submit" class="btn-save">Save</button>
+
+            </form>
+        </div>
+    </div>
+    <%@include file="common/footer.jspf" %>
 </body>
 </html>

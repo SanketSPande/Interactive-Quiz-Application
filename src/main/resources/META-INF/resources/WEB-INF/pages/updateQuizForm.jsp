@@ -45,48 +45,112 @@ function validate(){
 }
 </script>
 
+<style>
+        /* Style for the header */
+        .header {
+            background-color: #007BFF;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 30px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h2 {
+            font-size: 35px;
+        }
+
+        .instructions {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            padding: 10px 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container-inner {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .btn-save {
+            display: block;
+            width: 100%;
+            background-color: #007BFF;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-save:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-<h2>${quiz.getQuizName()}</h2><br>
-<h4>Please overwrite the only fields which you want to change (Overwriting all is not compulsory)</h4>
-<div class = "container">
-	<div class="row_justify-content-center mt-5">
-	<div class="col-lg-6 col-md-6">
-	<div class="card">
-	<div class="card-body">
-	<c:form  onsubmit="return validate()" action="updateQuiz" modelAttribute="quiz"  name="newQuizForm" method="post">
-	
-		<div class="mb-3">
-		<c:input type="hidden" class = "form-control" id="qid" path="quizId" placeholder="${quiz.getQuizId()}" ></c:input>
-		</div><br><br>
-		
-		<div class="mb-3">		
-		Previous Quiz Name
-		<c:input type="text" class = "form-control" id="qname" path="quizName" placeholder="${quiz.getQuizName()}" ></c:input>
-		</div><br><br>			
-		
-		<div class="mb-3">
-		Previous activation date & time (yyyy-mm-ddThh:mm) = ${quiz.getActivationDateTime()}<br>
-		Select a new activation date & time of quiz
-		<c:input type="datetime-local" class = "form-control" id="adt" path="activationDateTime" ></c:input>
-		</div><br><br>
-		
-		<div class="mb-3">
-		Previous deactivation date & time (yyyy-mm-ddThh:mm) = ${quiz.getDeactivationDateTime()}<br>
-		Select a new deactivation date & time of quiz
-		<c:input type="datetime-local" class = "form-control" id="ddt" path="deactivationDateTime" placeholder="${quiz.getDeactivationDateTime()}" ></c:input>
-		</div><br><br>
-		
-		<div class="mb-3">	
-        <input type="submit"  value="Save Changes" class = "btn btn-success w-100" />	
-		</div>	
-			
-	</c:form>
-	</div>
-	</div>
-	</div>
-	</div>
-	</div>
-<%@include file="common/footer.jspf" %>
+    <div class="header">
+        <h2>${quiz.getQuizName()}</h2>
+    </div>
+    <div class="instructions">
+        <h4>Please overwrite/select the only fields which you want to change (Overwriting all the fields is not compulsory)</h4>
+    </div>
+    <div class="container">
+        <div class="container-inner">
+            <c:form onsubmit="return validate()" action="updateQuiz" modelAttribute="quiz" name="newQuizForm" method="post">
+
+                <div class="form-group">
+                    <c:input type="hidden" class="form-control" id="qid" path="quizId" placeholder="${quiz.getQuizId()}" />
+                </div>
+
+                <div class="form-group">
+                    <label for="qname">Previous Quiz Name</label>
+                    <c:input type="text" class="form-control" id="qname" path="quizName"
+                        placeholder="${quiz.getQuizName()}" />
+                </div>
+
+                <div class="form-group">
+                    Previous activation date & time (yyyy-mm-ddThh:mm) = ${quiz.getActivationDateTime()}<br>
+                    Select a new activation date & time of quiz
+                    <c:input type="datetime-local" class="form-control" id="adt" path="activationDateTime" />
+                </div>
+
+                <div class="form-group">
+                    Previous deactivation date & time (yyyy-mm-ddThh:mm) = ${quiz.getDeactivationDateTime()}<br>
+                    Select a new deactivation date & time of quiz
+                    <c:input type="datetime-local" class="form-control" id="ddt" path="deactivationDateTime"
+                        placeholder="${quiz.getDeactivationDateTime()}" />
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Save Changes" class="btn-save" />
+                </div>
+
+            </c:form>
+        </div>
+    </div>
+    <%@include file="common/footer.jspf" %>
 </body>
 </html>
