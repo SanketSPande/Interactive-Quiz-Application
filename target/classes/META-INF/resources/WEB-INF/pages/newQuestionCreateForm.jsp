@@ -89,8 +89,8 @@
                                     placeholder="Add Correct Option Number (1/2/3/4)" />
                             </div>
                             
-                            <div class="mb-3">
-								<c:input type="text"  class = "form-control" id="explanation" path="explanation" placeholder="Add Option 4"/>
+                            <div class="form-group">
+								<c:input type="text"  class = "form-control" id="explanation" path="explanation" placeholder="Add Explanation"/>
 							</div><br>
 
                             <div>
@@ -140,12 +140,14 @@
                 alert("Correct Option Number must be a number in between 1 to 4");
                 return false;
             }
-            if(explanation.trim() == ""){
+            if(explanation.value.trim() == ""){
     			alert("No blank values allowed for Explanation");
     			return false;
     		}else {
+    			alert("Question added successfully!!");
                 return true;
             }
+            
         }
     </script>
 </body>

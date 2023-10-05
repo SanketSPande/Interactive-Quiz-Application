@@ -37,9 +37,10 @@
 		}
 		
 		else{
-			true;
+			alert("Quiz added successfully!!");
+			return true;
 		}
-		alert("Quiz added successfully!!");
+		
 	}
 
 </script>
@@ -122,26 +123,26 @@
             <div class="instructions">
                 <h2>Add Quiz Details</h2>
             </div>
-            <form onsubmit="return validate()" action="createQuiz" modelAttribute="quiz" method="post">
+            <c:form onsubmit="return validate()" action="createQuiz" modelAttribute="quiz" method="post">
 
                 <div class="form-group">
                     <label for="qname">Quiz Name</label>
-                    <input type="text" class="form-control" id="qname" path="quizName" placeholder="Add Quiz Name" required>
+                    <c:input type="text" class="form-control" id="qname" path="quizName" placeholder="Add Quiz Name" />
                 </div>
 
                 <div class="form-group">
                     <label for="adt">Activation Date & Time</label>
-                    <input type="datetime-local" class="form-control" id="adt" path="activationDateTime" min="${quiz.getActivationDateTime()}" required>
+                    <c:input type="datetime-local" class="form-control" id="adt" path="activationDateTime" min="${quiz.getActivationDateTime()}" />
                 </div>
 
                 <div class="form-group">
                     <label for="ddt">Deactivation Date & Time</label>
-                    <input type="datetime-local" class="form-control" id="ddt" path="deactivationDateTime" required>
+                    <c:input type="datetime-local" class="form-control" id="ddt" path="deactivationDateTime" />
                 </div>
 
                 <button type="submit" class="btn-save">Save</button>
 
-            </form>
+            </c:form>
         </div>
     </div>
     <%@include file="common/footer.jspf" %>

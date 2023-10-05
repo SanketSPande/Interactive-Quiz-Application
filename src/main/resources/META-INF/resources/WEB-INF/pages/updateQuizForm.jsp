@@ -39,9 +39,10 @@ function validate(){
 	}
 	
 	else{
+		alert("Updated Successfully!");
 		true;
 	}
-	alert("Updated Successfully!");
+	
 }
 </script>
 

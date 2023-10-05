@@ -41,7 +41,7 @@
                 alert("No blank values allowed for Correct Option No");
                 return false;
             }
-            if (explanation.trim() == "") {
+            if (explanation.value.trim() == "") {
                 alert("No blank values allowed for Explanation");
                 return false;
             }
@@ -51,8 +51,10 @@
             }
 
             else {
+            	alert("Question Updated Successfully!");
                 return true;
             }
+            
         }
     </script>
     <style>
