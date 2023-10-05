@@ -65,9 +65,9 @@ Make sure you have Java 17 and MySQL installed.
 
 Configure your MySQL database settings in src/main/resources/application.properties.
 
-Currently, the server port number is 3030 and MySql is running on port number 3306, if you want, you may customize it in src/main/resources/application.properties.
+Currently, the server port number is 8080 and MySql is running on port number 3306, if you want, you may customize it in src/main/resources/application.properties.
 
 
 ## Access the Application:
 
-Open your web browser and go to http://localhost:3030 to use the Interactive Quiz Application.
+Open your web browser and go to http://localhost:8080 to use the Interactive Quiz Application.
